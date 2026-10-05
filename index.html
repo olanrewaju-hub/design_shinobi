@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design Shinobi | Emiabata Mujaahid Olanrewaju</title>
+  <meta name="description" content="Design Shinobi is the portfolio of Emiabata Mujaahid Olanrewaju, a graphic designer and Electronic &amp; Computer Engineering student at LASU.">
+  <meta name="theme-color" content="#17130e">
+  <meta property="og:title" content="Design Shinobi | Where Creativity Meets Code">
+  <meta property="og:description" content="Graphic design, engineering and AI. Portfolio of Emiabata Mujaahid Olanrewaju.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon: the same split mark used in the header -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M2 2h28v12L2 20z' fill='%23ebe2d0'/%3E%3Cpath d='M2 23l28-6v13H2z' fill='%2388c76b'/%3E%3C/svg%3E">
+
+  <!-- Fonts: free from Google Fonts. The site still works with system fonts if they fail to load. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap">
+
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="#top" aria-label="Design Shinobi, back to top">
+        <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" focusable="false">
+          <path d="M2 2h28v12L2 20z" fill="#ebe2d0"/>
+          <path d="M2 23l28-6v13H2z" fill="#88c76b"/>
+        </svg>
+        <span>Design Shinobi</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+      <nav id="site-nav" class="nav" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#graphic-design">Graphic Design</a>
+        <a href="#engineering">Engineering</a>
+        <a href="#ai-python">AI &amp; Python</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap">
+        <h1 class="wordmark" id="hero-title">
+          <span class="wm wm-top">Design<br>Shinobi</span>
+          <span class="wm wm-bottom" aria-hidden="true">Design<br>Shinobi</span>
+          <svg class="slash" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <line x1="-2" y1="64.56" x2="102" y2="35.44"/>
+          </svg>
+        </h1>
+
+        <div class="hero-grid">
+          <div>
+            <p class="hero-name">Emiabata Mujaahid Olanrewaju</p>
+            <p class="hero-role">Graphic designer and Electronic &amp; Computer Engineering student at LASU.</p>
+          </div>
+          <div>
+            <p class="tagline">Where Creativity Meets Code.</p>
+            <p class="support">Designing experiences. Building impact.</p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#graphic-design">View My Work</a>
+              <a class="btn btn-ghost" href="#contact">Contact Me</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap split">
+        <div>
+          <h2 id="about-title">About</h2>
+          <p class="lede">I design it. I want to build it too.</p>
+        </div>
+        <div class="prose">
+          <p>I'm Mujaahid, a graphic designer and Electronic &amp; Computer Engineering student at LASU. I make flyers and visuals that get noticed, and I'm learning to build the things behind the screen.</p>
+          <p>Creativity gets people's attention. Engineering is how you give them something worth it. I combine creativity, engineering and technology to design visual experiences and build useful things.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRAPHIC DESIGN -->
+    <section class="section" id="graphic-design" aria-labelledby="design-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="design-title">Graphic Design</h2>
+          <p class="lede">Flyers and visual projects. Select an image to see it larger.</p>
+        </div>
+
+        <!-- Projects are added in script.js (see the PROJECTS list at the top of that file). -->
+        <div class="gallery" id="gallery"></div>
+        <noscript><p class="note">The gallery needs JavaScript. Please enable it to see the projects.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ENGINEERING -->
+    <section class="section engineering" id="engineering" aria-labelledby="eng-title">
+      <svg class="pcb" viewBox="0 0 400 260" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="#b28455" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M0 40H120L160 80H300L330 50H400"/>
+          <path d="M0 120H80L110 150H220L250 120H400"/>
+          <path d="M60 260V200L100 170H180L210 200H400"/>
+          <path d="M200 0V60L230 90V140"/>
+        </g>
+        <g fill="#17130e" stroke="#88c76b" stroke-width="2">
+          <circle cx="120" cy="40" r="5"/>
+          <circle cx="300" cy="80" r="5"/>
+          <circle cx="80" cy="120" r="5"/>
+          <circle cx="250" cy="120" r="5"/>
+          <circle cx="60" cy="200" r="5"/>
+          <circle cx="210" cy="200" r="5"/>
+          <circle cx="230" cy="140" r="5"/>
+        </g>
+      </svg>
+
+      <div class="wrap split">
+        <div>
+          <h2 id="eng-title">Engineering</h2>
+          <p class="lede">Where the code meets the circuit.</p>
+          <p class="prose-p">I'm studying Electronic &amp; Computer Engineering at LASU. It gives me the fundamentals behind the devices I like: how circuits behave, and how software makes hardware useful.</p>
+        </div>
+        <div>
+          <ul class="topics">
+            <li>
+              <h3>Embedded Systems</h3>
+              <p>Programming the small computers inside devices, so they can read sensors, drive motors and respond to the world.</p>
+            </li>
+            <li>
+              <h3>Robotics &amp; Automation</h3>
+              <p>Making machines sense, decide and act, and automating the repetitive work around us.</p>
+            </li>
+            <li>
+              <h3>Electronics</h3>
+              <p>Circuits, components and how they behave. The foundation under everything else I want to build.</p>
+            </li>
+          </ul>
+          <p class="aside">Further out, I'm aiming at aerospace and drone technology. That's where I'm headed, and I'm building the foundations for it now.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI & PYTHON -->
+    <section class="section" id="ai-python" aria-labelledby="ai-title">
+      <div class="wrap">
+        <div class="split">
+          <div>
+            <h2 id="ai-title">AI &amp; Python</h2>
+            <p class="lede">Still learning, and showing it.</p>
+            <p class="prose-p">I'm early on this path and I'd rather say so plainly. I'm learning Python and developing my understanding of machine learning and AI engineering, so I can build tools that are useful, not just impressive. I'll add what I build here as I go.</p>
+          </div>
+          <pre class="code"><code><span class="kw">class</span> <span class="fn">Mujaahid</span>:
+    designing = <span class="kw">True</span>
+    studying = <span class="str">"Electronic &amp; Computer Engineering"</span>
+    learning = [
+        <span class="str">"Python"</span>,
+        <span class="str">"Machine Learning"</span>,
+        <span class="str">"AI Engineering"</span>,
+    ]
+
+    <span class="kw">def</span> <span class="fn">status</span>(self):
+        <span class="kw">return</span> <span class="str">"work in progress"</span></code></pre>
+        </div>
+
+        <ul class="topics topics-wide">
+          <li>
+            <h3>Python</h3>
+            <p>Learning the language itself: syntax, problem solving and writing small programs.<span class="state">Developing</span></p>
+          </li>
+          <li>
+            <h3>Machine Learning</h3>
+            <p>Building a working understanding of how models learn from data.<span class="state">Developing</span></p>
+          </li>
+          <li>
+            <h3>AI Engineering</h3>
+            <p>Working toward turning models into tools people can actually use.<span class="state">Developing</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience" aria-labelledby="exp-title">
+      <div class="wrap split">
+        <div>
+          <h2 id="exp-title">Experience</h2>
+          <p class="lede">Design and leadership roles across student communities and tech events.</p>
+        </div>
+
+        <!-- To add a role, copy one <li> and change the text. -->
+        <ul class="roles">
+          <li><span class="role">Graphic Designer</span><span class="org">NASS</span></li>
+          <li><span class="role">Graphic Designer</span><span class="org">SCOME LASU</span></li>
+          <li><span class="role">Public Image Chair</span><span class="org">Rotaract Club of LASU Epe</span></li>
+          <li><span class="role">PR Team Lead</span><span class="org">NUESA-LASU Tech Expo 1.0 &amp; 2.0</span></li>
+          <li><span class="role">Publicity Manager</span><span class="org">TWCC LASU</span></li>
+          <li><span class="role">Assistant Director, Creative Media</span><span class="org">AWS Club LASU</span></li>
+          <li><span class="role">Programs Lead</span><span class="org">FMA Initiative</span></li>
+          <li><span class="role">Zonal Lead</span><span class="org">LASU TechWave 2026, Epe Campus</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap split">
+        <div>
+          <h2 id="contact-title">Contact</h2>
+          <p class="lede">Have a flyer to design, an event to promote, or something to build? Send a message.</p>
+        </div>
+
+        <!-- PLACEHOLDERS: replace the href and the visible text of each link below. -->
+        <ul class="contact-list">
+          <li>
+            <span class="contact-label">Email</span>
+            <a href="mailto:your.email@example.com">your.email@example.com</a>
+          </li>
+          <li>
+            <span class="contact-label">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">linkedin.com/in/your-profile</a>
+          </li>
+          <li>
+            <span class="contact-label">Instagram</span>
+            <a href="https://www.instagram.com/your_handle" target="_blank" rel="noopener">@your_handle</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <span>Design Shinobi</span>
+      <span>Emiabata Mujaahid Olanrewaju, <span id="year">2026</span></span>
+    </div>
+  </footer>
+
+  <!-- Image viewer for the gallery -->
+  <dialog id="lightbox" class="lightbox" aria-label="Project image">
+    <button class="lightbox-close" type="button" aria-label="Close image">Close</button>
+    <img id="lightbox-img" alt="">
+    <p class="lightbox-caption"><strong id="lightbox-title"></strong><span id="lightbox-role"></span></p>
+  </dialog>
+</body>
+</html>
