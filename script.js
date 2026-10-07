@@ -80,24 +80,93 @@ const PROJECTS = [
 ];
 
 
-/* 2. GALLERY RENDERING ---------------------------------------------------- */
+/* 2. FEEDBACK -------------------------------------------------------------- */
 
-const gallery = document.getElementById("gallery");
-const lightbox = document.getElementById("lightbox");
-const lbImg = document.getElementById("lightbox-img");
-const lbTitle = document.getElementById("lightbox-title");
-const lbRole = document.getElementById("lightbox-role");
+const FEEDBACK = [
+  {
+    image: "images/Screenshot_20261007-013858_1.jpg",
+    title: "Client Feedback",
+    role: "Design Feedback"
+  },
+
+  {
+    image: "images/Screenshot_20261007-014254_1.jpg",
+    title: "Client Feedback",
+    role: "Design Feedback"
+  },
+
+  {
+    image: "images/Screenshot_20261007-014319_1.jpg",
+    title: "Client Feedback",
+    role: "Design Feedback"
+  },
+
+  {
+    image: "images/Screenshot_20261007-014817_1.jpg",
+    title: "Client Feedback",
+    role: "Design Feedback"
+  },
+
+  {
+    image: "images/Screenshot_20261007-015114_1.jpg",
+    title: "Client Feedback",
+    role: "Design Feedback"
+  },
+
+  {
+    image: "images/Screenshot_20261007-015215_1.jpg",
+    title: "Client Feedback",
+    role: "Design Feedback"
+  },
+
+  {
+    image: "images/Screenshot_20261007-015220_1.jpg",
+    title: "Client Feedback",
+    role: "Design Feedback"
+  },
+
+  {
+    image: "images/Screenshot_20261007-015407_1.jpg",
+    title: "Client Feedback",
+    role: "Design Feedback"
+  }
+];
+
+
+/* 3. SHARED ELEMENTS ------------------------------------------------------- */
+
+const gallery =
+  document.getElementById("gallery");
+
+const lightbox =
+  document.getElementById("lightbox");
+
+const lbImg =
+  document.getElementById("lightbox-img");
+
+const lbTitle =
+  document.getElementById("lightbox-title");
+
+const lbRole =
+  document.getElementById("lightbox-role");
 
 
 function el(tag, className, text) {
-  const node = document.createElement(tag);
+
+  const node =
+    document.createElement(tag);
 
   if (className) {
-    node.className = className;
+    node.className =
+      className;
   }
 
-  if (text !== undefined && text !== null) {
-    node.textContent = text;
+  if (
+    text !== undefined &&
+    text !== null
+  ) {
+    node.textContent =
+      text;
   }
 
   return node;
@@ -105,7 +174,9 @@ function el(tag, className, text) {
 
 
 function buildPlaceholder(path) {
-  const box = el("div", "project-placeholder");
+
+  const box =
+    el("div", "project-placeholder");
 
   box.append(
     el("span", null, "Image goes here"),
@@ -117,8 +188,12 @@ function buildPlaceholder(path) {
 
 
 function metaRow(label, content) {
-  const row = el("div");
-  const dd = el("dd");
+
+  const row =
+    el("div");
+
+  const dd =
+    el("dd");
 
   dd.append(content);
 
@@ -131,13 +206,20 @@ function metaRow(label, content) {
 }
 
 
+/* 4. PROJECT GALLERY ------------------------------------------------------- */
+
 function buildProject(project) {
-  const card = el("figure", "project");
 
-  // Image
-  const media = el("button", "project-media");
+  const card =
+    el("figure", "project");
 
-  media.type = "button";
+
+  const media =
+    el("button", "project-media");
+
+  media.type =
+    "button";
+
 
   media.setAttribute(
     "aria-label",
@@ -145,88 +227,154 @@ function buildProject(project) {
   );
 
 
-  const img = el("img");
-
-  img.alt = project.alt || project.title;
-
-  img.loading = "lazy";
-
-  img.decoding = "async";
+  const img =
+    el("img");
 
 
-  if (project.width && project.height) {
-    img.width = project.width;
-    img.height = project.height;
+  img.alt =
+    project.alt || project.title;
+
+  img.loading =
+    "lazy";
+
+  img.decoding =
+    "async";
+
+
+  if (
+    project.width &&
+    project.height
+  ) {
+
+    img.width =
+      project.width;
+
+    img.height =
+      project.height;
+
   }
 
 
-  img.addEventListener("load", () => {
-    img.classList.add("is-ready");
-  });
+  img.addEventListener(
+    "load",
+    () => {
+      img.classList.add("is-ready");
+    }
+  );
 
 
-  img.addEventListener("error", () => {
-    media.replaceChildren(
-      buildPlaceholder(project.image)
-    );
+  img.addEventListener(
+    "error",
+    () => {
 
-    media.classList.add("is-empty");
+      media.replaceChildren(
+        buildPlaceholder(
+          project.image
+        )
+      );
 
-    media.disabled = true;
+      media.classList.add(
+        "is-empty"
+      );
 
-    media.removeAttribute("aria-label");
-  });
+      media.disabled =
+        true;
+
+      media.removeAttribute(
+        "aria-label"
+      );
+
+    }
+  );
 
 
-  img.src = project.image;
+  img.src =
+    project.image;
+
 
   media.append(img);
 
 
-  media.addEventListener("click", () => {
-    openLightbox(project, img);
-  });
-
-
-  // Text
-  const body = el("figcaption", "project-body");
-
-
-  body.append(
-    el("h3", null, project.title),
-    el("p", null, project.description)
+  media.addEventListener(
+    "click",
+    () => {
+      openLightbox(
+        project,
+        img
+      );
+    }
   );
 
 
-  const meta = el("dl", "project-meta");
+  const body =
+    el("figcaption", "project-body");
+
+
+  body.append(
+    el(
+      "h3",
+      null,
+      project.title
+    ),
+
+    el(
+      "p",
+      null,
+      project.description
+    )
+  );
+
+
+  const meta =
+    el("dl", "project-meta");
 
 
   meta.append(
     metaRow(
       "Role",
-      document.createTextNode(project.role || "")
+      document.createTextNode(
+        project.role || ""
+      )
     )
   );
 
 
-  const toolList = el("ul", "tools");
+  const toolList =
+    el("ul", "tools");
 
 
-  [].concat(project.tools || []).forEach((tool) => {
-    toolList.append(
-      el("li", null, tool)
-    );
-  });
+  [].concat(
+    project.tools || []
+  ).forEach(
+    (tool) => {
+
+      toolList.append(
+        el(
+          "li",
+          null,
+          tool
+        )
+      );
+
+    }
+  );
 
 
   meta.append(
-    metaRow("Tools", toolList)
+    metaRow(
+      "Tools",
+      toolList
+    )
   );
 
 
   body.append(meta);
 
-  card.append(media, body);
+  card.append(
+    media,
+    body
+  );
+
 
   return card;
 }
@@ -234,7 +382,9 @@ function buildProject(project) {
 
 if (gallery) {
 
-  if (PROJECTS.length === 0) {
+  if (
+    PROJECTS.length === 0
+  ) {
 
     gallery.replaceWith(
       el(
@@ -246,19 +396,27 @@ if (gallery) {
 
   } else {
 
-    PROJECTS.forEach((project) => {
-      gallery.append(
-        buildProject(project)
-      );
-    });
+    PROJECTS.forEach(
+      (project) => {
+
+        gallery.append(
+          buildProject(project)
+        );
+
+      }
+    );
 
   }
+
 }
 
 
-/* 3. IMAGE VIEWER --------------------------------------------------------- */
+/* 5. IMAGE VIEWER ---------------------------------------------------------- */
 
-function openLightbox(project, img) {
+function openLightbox(
+  project,
+  img
+) {
 
   if (
     !lightbox ||
@@ -269,64 +427,162 @@ function openLightbox(project, img) {
 
 
   lbImg.src =
-    img.currentSrc || img.src;
+    img.currentSrc ||
+    img.src;
 
 
-  lbImg.alt = img.alt;
+  lbImg.alt =
+    img.alt;
 
 
   lbTitle.textContent =
-    project.title;
+    project.title ||
+    "";
 
 
   lbRole.textContent =
-    project.role || "";
+    project.role ||
+    "";
 
 
   lightbox.showModal();
 }
 
 
-if (lightbox) {
+/* 6. FEEDBACK VIEWER ------------------------------------------------------- */
 
-  // Close button
-  lightbox
-    .querySelector(".lightbox-close")
-    .addEventListener("click", () => {
-      lightbox.close();
-    });
+const testimonialButtons =
+  document.querySelectorAll(
+    ".testimonial"
+  );
 
 
-  // Click dark background to close
-  lightbox.addEventListener("click", (event) => {
+testimonialButtons.forEach(
+  (button, index) => {
 
-    if (event.target === lightbox) {
-      lightbox.close();
+    const image =
+      button.querySelector("img");
+
+    if (!image) {
+      return;
     }
 
-  });
+
+    button.setAttribute(
+      "aria-label",
+      "View feedback " +
+      (index + 1) +
+      " larger"
+    );
 
 
-  // Remove image when closed
-  lightbox.addEventListener("close", () => {
-    lbImg.removeAttribute("src");
-  });
+    button.addEventListener(
+      "click",
+      () => {
+
+        const feedback =
+          FEEDBACK[index];
+
+
+        if (!feedback) {
+          return;
+        }
+
+
+        openLightbox(
+          feedback,
+          image
+        );
+
+      }
+    );
+
+  }
+);
+
+
+/* 7. LIGHTBOX CONTROLS ----------------------------------------------------- */
+
+if (lightbox) {
+
+  const closeButton =
+    lightbox.querySelector(
+      ".lightbox-close"
+    );
+
+
+  if (closeButton) {
+
+    closeButton.addEventListener(
+      "click",
+      () => {
+        lightbox.close();
+      }
+    );
+
+  }
+
+
+  lightbox.addEventListener(
+    "click",
+    (event) => {
+
+      if (
+        event.target ===
+        lightbox
+      ) {
+        lightbox.close();
+      }
+
+    }
+  );
+
+
+  lightbox.addEventListener(
+    "close",
+    () => {
+
+      lbImg.removeAttribute(
+        "src"
+      );
+
+      lbTitle.textContent =
+        "";
+
+      lbRole.textContent =
+        "";
+
+    }
+  );
 
 }
 
 
-/* 4. MOBILE NAVIGATION ---------------------------------------------------- */
+/* 8. MOBILE NAVIGATION ----------------------------------------------------- */
 
 const navToggle =
-  document.querySelector(".nav-toggle");
+  document.querySelector(
+    ".nav-toggle"
+  );
 
 const nav =
-  document.getElementById("site-nav");
+  document.getElementById(
+    "site-nav"
+  );
 
 
 function setNav(open) {
 
-  nav.classList.toggle("open", open);
+  if (!nav || !navToggle) {
+    return;
+  }
+
+
+  nav.classList.toggle(
+    "open",
+    open
+  );
+
 
   navToggle.setAttribute(
     "aria-expanded",
@@ -336,44 +592,66 @@ function setNav(open) {
 }
 
 
-if (navToggle && nav) {
+if (
+  navToggle &&
+  nav
+) {
 
-  navToggle.addEventListener("click", () => {
+  navToggle.addEventListener(
+    "click",
+    () => {
 
-    setNav(
-      navToggle.getAttribute("aria-expanded") !== "true"
-    );
+      setNav(
+        navToggle.getAttribute(
+          "aria-expanded"
+        ) !== "true"
+      );
 
-  });
-
-
-  nav.addEventListener("click", (event) => {
-
-    if (event.target.closest("a")) {
-      setNav(false);
     }
+  );
 
-  });
 
+  nav.addEventListener(
+    "click",
+    (event) => {
 
-  document.addEventListener("keydown", (event) => {
+      if (
+        event.target.closest("a")
+      ) {
+        setNav(false);
+      }
 
-    if (event.key === "Escape") {
-      setNav(false);
     }
+  );
 
-  });
+
+  document.addEventListener(
+    "keydown",
+    (event) => {
+
+      if (
+        event.key === "Escape"
+      ) {
+        setNav(false);
+      }
+
+    }
+  );
 
 }
 
 
-/* 5. FOOTER YEAR ---------------------------------------------------------- */
+/* 9. FOOTER YEAR ----------------------------------------------------------- */
 
 const year =
-  document.getElementById("year");
+  document.getElementById(
+    "year"
+  );
 
 
 if (year) {
+
   year.textContent =
     new Date().getFullYear();
-}
+
+   }
