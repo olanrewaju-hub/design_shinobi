@@ -1,21 +1,23 @@
-/* ==========================================================================
+ /* ==========================================================================
    Design Shinobi: style.css
    1. Tokens   2. Base   3. Header   4. Hero   5. Sections   6. Gallery
-   7. Engineering   8. AI & Python   9. Experience   10. Contact
-   11. Footer & lightbox   12. Motion preferences
+   7. Engineering   8. AI & Python   9. Feedback   10. Experience
+   11. Contact   12. Footer & lightbox   13. Motion preferences
    ========================================================================== */
 
+
 /* 1. TOKENS ---------------------------------------------------------------- */
+
 :root {
-  --bark: #17130e;       /* base background */
-  --loam: #221b13;       /* raised surfaces */
-  --loam-2: #2c2318;     /* image wells, code */
-  --moss: #2c4a2b;       /* deep green for gradients */
-  --leaf: #88c76b;       /* primary accent (green) */
-  --clay: #b28455;       /* secondary accent (warm brown) */
-  --parchment: #ebe2d0;  /* headings */
-  --text: #d8ceba;       /* body text */
-  --muted: #a89d8b;      /* secondary text */
+  --bark: #17130e;
+  --loam: #221b13;
+  --loam-2: #2c2318;
+  --moss: #2c4a2b;
+  --leaf: #88c76b;
+  --clay: #b28455;
+  --parchment: #ebe2d0;
+  --text: #d8ceba;
+  --muted: #a89d8b;
   --line: rgba(178, 132, 85, 0.28);
 
   --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
@@ -28,8 +30,12 @@
   --header-h: 4rem;
 }
 
+
 /* 2. BASE ------------------------------------------------------------------ */
-*, *::before, *::after { box-sizing: border-box; }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -44,11 +50,32 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img { max-width: 100%; height: auto; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; margin: 0; padding: 0; }
-h1, h2, h3, p { margin: 0; }
-[id] { scroll-margin-top: var(--header-h); }
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+[id] {
+  scroll-margin-top: var(--header-h);
+}
 
 :focus-visible {
   outline: 2px solid var(--leaf);
@@ -56,7 +83,10 @@ h1, h2, h3, p { margin: 0; }
 }
 
 .wrap {
-  width: min(100% - 2 * var(--gutter), var(--max));
+  width: min(
+    100% - 2 * var(--gutter),
+    var(--max)
+  );
   margin-inline: auto;
 }
 
@@ -70,9 +100,14 @@ h1, h2, h3, p { margin: 0; }
   color: #10170c;
   font: 600 0.95rem var(--display);
 }
-.skip:focus { top: 1rem; }
+
+.skip:focus {
+  top: 1rem;
+}
+
 
 /* 3. HEADER ---------------------------------------------------------------- */
+
 .site-header {
   position: sticky;
   top: 0;
@@ -109,9 +144,18 @@ h1, h2, h3, p { margin: 0; }
   padding: 0.25rem 0;
   font: 500 0.95rem var(--display);
   color: var(--text);
-  background: linear-gradient(var(--leaf), var(--leaf)) left bottom / 0 2px no-repeat;
-  transition: background-size 0.25s ease, color 0.2s ease;
+  background:
+    linear-gradient(
+      var(--leaf),
+      var(--leaf)
+    )
+    left bottom / 0 2px no-repeat;
+
+  transition:
+    background-size 0.25s ease,
+    color 0.2s ease;
 }
+
 .nav a:hover,
 .nav a:focus-visible {
   color: var(--parchment);
@@ -130,7 +174,10 @@ h1, h2, h3, p { margin: 0; }
 }
 
 @media (max-width: 859px) {
-  .nav-toggle { display: inline-flex; }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
 
   .js .nav {
     display: none;
@@ -144,7 +191,10 @@ h1, h2, h3, p { margin: 0; }
     background: var(--bark);
     border-bottom: 1px solid var(--line);
   }
-  .js .nav.open { display: flex; }
+
+  .js .nav.open {
+    display: flex;
+  }
 
   .nav a {
     padding: 0.8rem 0;
@@ -153,7 +203,9 @@ h1, h2, h3, p { margin: 0; }
   }
 }
 
+
 /* 4. HERO ------------------------------------------------------------------ */
+
 .hero {
   position: relative;
   isolation: isolate;
@@ -169,14 +221,20 @@ h1, h2, h3, p { margin: 0; }
   position: absolute;
   inset: 0;
   z-index: -1;
+
   background:
-    radial-gradient(48rem 32rem at 8% 88%, rgba(44, 74, 43, 0.55), transparent 65%),
-    radial-gradient(40rem 28rem at 96% 4%, rgba(178, 132, 85, 0.2), transparent 65%);
+    radial-gradient(
+      48rem 32rem at 8% 88%,
+      rgba(44, 74, 43, 0.55),
+      transparent 65%
+    ),
+    radial-gradient(
+      40rem 28rem at 96% 4%,
+      rgba(178, 132, 85, 0.2),
+      transparent 65%
+    );
 }
 
-/* The wordmark is cut diagonally into two halves: top = design (warm),
-   bottom = code (green). Resting styles are the FINAL state; the keyframes
-   below play the cut once on page load. */
 .wordmark {
   position: relative;
   display: inline-block;
@@ -194,18 +252,43 @@ h1, h2, h3, p { margin: 0; }
 
 .wm-top {
   color: var(--parchment);
-  clip-path: polygon(0 0, 100% 0, 100% 36%, 0 64%);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 36%,
+    0 64%
+  );
+
   transform: translate(0, -0.012em);
-  animation: cut-top 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.85s backwards;
+
+  animation:
+    cut-top
+    0.8s
+    cubic-bezier(0.2, 0.8, 0.2, 1)
+    0.85s
+    backwards;
 }
 
 .wm-bottom {
   position: absolute;
   inset: 0;
   color: var(--leaf);
-  clip-path: polygon(0 64%, 100% 36%, 100% 100%, 0 100%);
+
+  clip-path: polygon(
+    0 64%,
+    100% 36%,
+    100% 100%,
+    0 100%
+  );
+
   transform: translate(0, 0.012em);
-  animation: cut-bottom 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.85s backwards;
+
+  animation:
+    cut-bottom
+    0.8s
+    cubic-bezier(0.2, 0.8, 0.2, 1)
+    0.85s
+    backwards;
 }
 
 .slash {
@@ -216,8 +299,15 @@ h1, h2, h3, p { margin: 0; }
   overflow: visible;
   pointer-events: none;
   opacity: 0.75;
-  animation: slash-draw 0.5s cubic-bezier(0.7, 0, 0.2, 1) 0.4s backwards;
+
+  animation:
+    slash-draw
+    0.5s
+    cubic-bezier(0.7, 0, 0.2, 1)
+    0.4s
+    backwards;
 }
+
 .slash line {
   stroke: var(--leaf);
   stroke-width: 2;
@@ -225,18 +315,60 @@ h1, h2, h3, p { margin: 0; }
 }
 
 @keyframes slash-draw {
-  from { clip-path: inset(-10% 100% -10% 0); }
-  to   { clip-path: inset(-10% 0 -10% 0); }
+  from {
+    clip-path: inset(-10% 100% -10% 0);
+  }
+
+  to {
+    clip-path: inset(-10% 0 -10% 0);
+  }
 }
+
 @keyframes cut-top {
-  0%   { transform: translate(0, 0); }
-  40%  { transform: translate(0.03em, -0.05em); }
-  100% { transform: translate(0, -0.012em); }
+
+  0% {
+    transform: translate(0, 0);
+  }
+
+  40% {
+    transform: translate(
+      0.03em,
+      -0.05em
+    );
+  }
+
+  100% {
+    transform: translate(
+      0,
+      -0.012em
+    );
+  }
+
 }
+
 @keyframes cut-bottom {
-  0%   { transform: translate(0, 0); color: var(--parchment); }
-  40%  { transform: translate(-0.03em, 0.05em); color: var(--leaf); }
-  100% { transform: translate(0, 0.012em); color: var(--leaf); }
+
+  0% {
+    transform: translate(0, 0);
+    color: var(--parchment);
+  }
+
+  40% {
+    transform: translate(
+      -0.03em,
+      0.05em
+    );
+    color: var(--leaf);
+  }
+
+  100% {
+    transform: translate(
+      0,
+      0.012em
+    );
+    color: var(--leaf);
+  }
+
 }
 
 .hero-grid {
@@ -246,7 +378,12 @@ h1, h2, h3, p { margin: 0; }
 }
 
 .hero-name {
-  font: 700 clamp(1.4rem, 3vw, 1.9rem)/1.15 var(--display);
+  font:
+    700
+    clamp(1.4rem, 3vw, 1.9rem)
+    /1.15
+    var(--display);
+
   color: var(--parchment);
   letter-spacing: -0.01em;
 }
@@ -258,13 +395,23 @@ h1, h2, h3, p { margin: 0; }
 }
 
 .tagline {
-  font: italic 400 clamp(1.7rem, 3.6vw, 2.5rem)/1.15 var(--serif);
+  font:
+    italic
+    400
+    clamp(1.7rem, 3.6vw, 2.5rem)
+    /1.15
+    var(--serif);
+
   color: var(--parchment);
 }
 
 .support {
   margin-top: 0.5rem;
-  font: 500 1.05rem var(--display);
+  font:
+    500
+    1.05rem
+    var(--display);
+
   color: var(--clay);
 }
 
@@ -281,23 +428,51 @@ h1, h2, h3, p { margin: 0; }
   padding: 0.9rem 1.5rem;
   border: 1px solid transparent;
   border-radius: var(--radius);
-  font: 600 1rem var(--display);
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  font:
+    600
+    1rem
+    var(--display);
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
-.btn-primary { background: var(--leaf); color: #10170c; }
-.btn-primary:hover { background: #a2dc86; }
-.btn-ghost { border-color: var(--clay); color: var(--parchment); }
-.btn-ghost:hover { background: rgba(178, 132, 85, 0.16); }
+
+.btn-primary {
+  background: var(--leaf);
+  color: #10170c;
+}
+
+.btn-primary:hover {
+  background: #a2dc86;
+}
+
+.btn-ghost {
+  border-color: var(--clay);
+  color: var(--parchment);
+}
+
+.btn-ghost:hover {
+  background: rgba(178, 132, 85, 0.16);
+}
 
 @media (min-width: 860px) {
+
   .hero-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
     gap: 4rem;
     align-items: start;
   }
+
 }
 
+
 /* 5. SECTIONS -------------------------------------------------------------- */
+
 .section {
   padding-block: clamp(4.5rem, 10vw, 8rem);
   border-top: 1px solid var(--line);
@@ -309,16 +484,33 @@ h1, h2, h3, p { margin: 0; }
 }
 
 @media (min-width: 860px) {
+
   .split {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-columns:
+      minmax(0, 5fr)
+      minmax(0, 7fr);
+
     gap: 4rem;
   }
+
 }
 
-.section-head { max-width: 40rem; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+.section-head {
+  max-width: 40rem;
+  margin-bottom: clamp(
+    2rem,
+    5vw,
+    3.5rem
+  );
+}
 
 h2 {
-  font: 700 clamp(2.2rem, 5vw, 3.6rem)/1 var(--display);
+  font:
+    700
+    clamp(2.2rem, 5vw, 3.6rem)
+    /1
+    var(--display);
+
   letter-spacing: -0.025em;
   color: var(--parchment);
   text-wrap: balance;
@@ -326,26 +518,59 @@ h2 {
 
 .lede {
   margin-top: 1rem;
-  font: italic 400 clamp(1.2rem, 2.2vw, 1.5rem)/1.35 var(--serif);
+
+  font:
+    italic
+    400
+    clamp(1.2rem, 2.2vw, 1.5rem)
+    /1.35
+    var(--serif);
+
   color: var(--clay);
   text-wrap: balance;
 }
 
-.prose { max-width: 36rem; }
-.prose p + p { margin-top: 1.1rem; }
-.prose p, .prose-p { text-wrap: pretty; }
-.prose-p { margin-top: 1.5rem; max-width: 30rem; }
+.prose {
+  max-width: 36rem;
+}
 
-.note { color: var(--muted); }
+.prose p + p {
+  margin-top: 1.1rem;
+}
 
-/* 6. GRAPHIC DESIGN GALLERY ------------------------------------------------ */
-/* CSS columns let flyers keep their own proportions (no cropping). */
+.prose p,
+.prose-p {
+  text-wrap: pretty;
+}
+
+.prose-p {
+  margin-top: 1.5rem;
+  max-width: 30rem;
+}
+
+.note {
+  color: var(--muted);
+}
+
+
+/* 6. GRAPHIC DESIGN GALLERY ----------------------------------------------- */
+
 .gallery {
   column-count: 1;
   column-gap: 1.5rem;
 }
-@media (min-width: 640px)  { .gallery { column-count: 2; } }
-@media (min-width: 1000px) { .gallery { column-count: 3; } }
+
+@media (min-width: 640px) {
+  .gallery {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1000px) {
+  .gallery {
+    column-count: 3;
+  }
+}
 
 .project {
   break-inside: avoid;
@@ -356,8 +581,11 @@ h2 {
   overflow: hidden;
   transition: border-color 0.2s ease;
 }
+
 .project:hover,
-.project:focus-within { border-color: var(--leaf); }
+.project:focus-within {
+  border-color: var(--leaf);
+}
 
 .project-media {
   display: block;
@@ -368,16 +596,24 @@ h2 {
   cursor: zoom-in;
   line-height: 0;
 }
-.project-media.is-empty { cursor: default; }
+
+.project-media.is-empty {
+  cursor: default;
+}
 
 .project-media img {
   display: block;
   width: 100%;
   height: auto;
   opacity: 0;
-  transition: opacity 0.4s ease;
+
+  transition:
+    opacity 0.4s ease;
 }
-.project-media img.is-ready { opacity: 1; }
+
+.project-media img.is-ready {
+  opacity: 1;
+}
 
 .project-placeholder {
   display: grid;
@@ -387,26 +623,51 @@ h2 {
   padding: 1.5rem;
   text-align: center;
   line-height: 1.4;
+
   color: var(--muted);
-  font: 500 0.95rem var(--display);
+
+  font:
+    500
+    0.95rem
+    var(--display);
+
   background:
-    repeating-linear-gradient(135deg, transparent 0 14px, rgba(178, 132, 85, 0.09) 14px 15px),
+    repeating-linear-gradient(
+      135deg,
+      transparent 0 14px,
+      rgba(178, 132, 85, 0.09) 14px 15px
+    ),
     var(--loam-2);
 }
+
 .project-placeholder code {
-  font: 0.8rem var(--mono);
+  font:
+    0.8rem
+    var(--mono);
+
   color: var(--clay);
   overflow-wrap: anywhere;
 }
 
-.project-body { padding: 1.25rem 1.25rem 1.4rem; }
+.project-body {
+  padding: 1.25rem 1.25rem 1.4rem;
+}
 
 .project-body h3 {
-  font: 700 1.3rem/1.2 var(--display);
+  font:
+    700
+    1.3rem
+    /1.2
+    var(--display);
+
   letter-spacing: -0.01em;
   color: var(--parchment);
 }
-.project-body p { margin-top: 0.5rem; font-size: 1rem; }
+
+.project-body p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
 
 .project-meta {
   display: grid;
@@ -415,26 +676,57 @@ h2 {
   padding-top: 1rem;
   border-top: 1px solid var(--line);
 }
+
 .project-meta > div {
   display: grid;
-  grid-template-columns: 3.4rem minmax(0, 1fr);
+  grid-template-columns:
+    3.4rem
+    minmax(0, 1fr);
+
   gap: 0.5rem;
   align-items: baseline;
 }
-.project-meta dt { font: 500 0.85rem var(--display); color: var(--muted); }
-.project-meta dd { margin: 0; font-size: 0.98rem; }
 
-.tools { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.project-meta dt {
+  font:
+    500
+    0.85rem
+    var(--display);
+
+  color: var(--muted);
+}
+
+.project-meta dd {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
 .tools li {
   padding: 0.1rem 0.5rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  font: 500 0.82rem var(--display);
+
+  font:
+    500
+    0.82rem
+    var(--display);
+
   color: var(--text);
 }
 
+
 /* 7. ENGINEERING ----------------------------------------------------------- */
-.engineering { position: relative; overflow: hidden; }
+
+.engineering {
+  position: relative;
+  overflow: hidden;
+}
 
 .pcb {
   position: absolute;
@@ -443,10 +735,25 @@ h2 {
   width: min(34rem, 60vw);
   opacity: 0.22;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(to left, #000 30%, transparent);
-  mask-image: linear-gradient(to left, #000 30%, transparent);
+
+  -webkit-mask-image:
+    linear-gradient(
+      to left,
+      #000 30%,
+      transparent
+    );
+
+  mask-image:
+    linear-gradient(
+      to left,
+      #000 30%,
+      transparent
+    );
 }
-.engineering .wrap { position: relative; }
+
+.engineering .wrap {
+  position: relative;
+}
 
 .topics li {
   display: grid;
@@ -454,18 +761,35 @@ h2 {
   padding: 1.25rem 0;
   border-top: 1px solid var(--line);
 }
-.topics li:last-child { border-bottom: 1px solid var(--line); }
+
+.topics li:last-child {
+  border-bottom: 1px solid var(--line);
+}
 
 .topics h3 {
-  font: 700 1.3rem/1.2 var(--display);
+  font:
+    700
+    1.3rem
+    /1.2
+    var(--display);
+
   letter-spacing: -0.01em;
   color: var(--parchment);
 }
-.topics p { max-width: 38rem; }
 
-.aside { margin-top: 1.75rem; max-width: 38rem; color: var(--muted); }
+.topics p {
+  max-width: 38rem;
+}
+
+.aside {
+  margin-top: 1.75rem;
+  max-width: 38rem;
+  color: var(--muted);
+}
+
 
 /* 8. AI & PYTHON ----------------------------------------------------------- */
+
 .code {
   margin: 0;
   padding: 1.5rem;
@@ -473,65 +797,234 @@ h2 {
   background: var(--loam);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  font: 0.9rem/1.7 var(--mono);
+
+  font:
+    0.9rem
+    /1.7
+    var(--mono);
+
   color: var(--text);
   align-self: start;
 }
-.code .kw  { color: var(--leaf); }
-.code .fn  { color: var(--parchment); font-weight: 600; }
-.code .str { color: var(--clay); }
 
-.topics-wide { margin-top: clamp(2.5rem, 6vw, 4rem); }
+.code .kw {
+  color: var(--leaf);
+}
+
+.code .fn {
+  color: var(--parchment);
+  font-weight: 600;
+}
+
+.code .str {
+  color: var(--clay);
+}
+
+.topics-wide {
+  margin-top: clamp(
+    2.5rem,
+    6vw,
+    4rem
+  );
+}
 
 .state {
   display: block;
   margin-top: 0.6rem;
-  font: 500 0.85rem var(--display);
+
+  font:
+    500
+    0.85rem
+    var(--display);
+
   color: var(--leaf);
 }
 
 @media (min-width: 860px) {
+
   .topics-wide li {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-columns:
+      minmax(0, 5fr)
+      minmax(0, 7fr);
+
     gap: 4rem;
   }
+
 }
 
-/* 9. EXPERIENCE ------------------------------------------------------------ */
+
+/* 9. WHAT PEOPLE SAY ------------------------------------------------------- */
+
+.testimonials {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    radial-gradient(
+      38rem 24rem at 100% 15%,
+      rgba(44, 74, 43, 0.28),
+      transparent 70%
+    );
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 1.25rem;
+}
+
+.testimonial {
+  display: block;
+  width: 100%;
+  padding: 0;
+
+  background: var(--loam);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+
+  overflow: hidden;
+  cursor: zoom-in;
+  line-height: 0;
+
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.testimonial:hover {
+  border-color: var(--leaf);
+  transform: translateY(-3px);
+}
+
+.testimonial img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.testimonial:hover img {
+  transform: scale(1.015);
+}
+
+.testimonial:focus-visible {
+  outline: 2px solid var(--leaf);
+  outline-offset: 4px;
+}
+
+@media (max-width: 900px) {
+
+  .testimonial-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+}
+
+@media (max-width: 560px) {
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+}
+
+
+/* 10. EXPERIENCE ----------------------------------------------------------- */
+
 .roles li {
   display: grid;
   gap: 0.15rem;
   padding: 1rem 0;
   border-top: 1px solid var(--line);
-  transition: padding-left 0.2s ease;
+
+  transition:
+    padding-left 0.2s ease;
 }
-.roles li:last-child { border-bottom: 1px solid var(--line); }
-.roles li:hover { padding-left: 0.5rem; }
+
+.roles li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.roles li:hover {
+  padding-left: 0.5rem;
+}
 
 .role {
-  font: 600 1.15rem/1.3 var(--display);
+  font:
+    600
+    1.15rem
+    /1.3
+    var(--display);
+
   color: var(--parchment);
-  transition: color 0.2s ease;
+
+  transition:
+    color 0.2s ease;
 }
-.roles li:hover .role { color: var(--leaf); }
-.org { font-style: italic; color: var(--muted); }
+
+.roles li:hover .role {
+  color: var(--leaf);
+}
+
+.org {
+  font-style: italic;
+  color: var(--muted);
+}
 
 @media (min-width: 640px) {
+
   .roles li {
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    grid-template-columns:
+      minmax(0, 1.2fr)
+      minmax(0, 1fr);
+
     gap: 1.5rem;
     align-items: baseline;
   }
+
 }
 
-/* 10. CONTACT -------------------------------------------------------------- */
-.contact { position: relative; isolation: isolate; overflow: hidden; }
+
+/* 11. CONTACT -------------------------------------------------------------- */
+
+.contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
 .contact::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(44rem 26rem at 0% 100%, rgba(44, 74, 43, 0.45), transparent 65%);
+
+  background:
+    radial-gradient(
+      44rem 26rem at 0% 100%,
+      rgba(44, 74, 43, 0.45),
+      transparent 65%
+    );
 }
 
 .contact-list li {
@@ -540,32 +1033,66 @@ h2 {
   padding: 1.25rem 0;
   border-top: 1px solid var(--line);
 }
-.contact-list li:last-child { border-bottom: 1px solid var(--line); }
 
-.contact-label { font: 500 0.9rem var(--display); color: var(--muted); }
+.contact-list li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-label {
+  font:
+    500
+    0.9rem
+    var(--display);
+
+  color: var(--muted);
+}
 
 .contact-list a {
   justify-self: start;
-  font: 700 clamp(1.3rem, 3.4vw, 2rem)/1.2 var(--display);
+
+  font:
+    700
+    clamp(1.3rem, 3.4vw, 2rem)
+    /1.2
+    var(--display);
+
   letter-spacing: -0.015em;
   color: var(--parchment);
   overflow-wrap: anywhere;
-  background: linear-gradient(var(--leaf), var(--leaf)) left bottom / 0 3px no-repeat;
-  transition: background-size 0.3s ease, color 0.2s ease;
+
+  background:
+    linear-gradient(
+      var(--leaf),
+      var(--leaf)
+    )
+    left bottom / 0 3px no-repeat;
+
+  transition:
+    background-size 0.3s ease,
+    color 0.2s ease;
 }
+
 .contact-list a:hover,
 .contact-list a:focus-visible {
   color: var(--leaf);
   background-size: 100% 3px;
 }
 
-/* 11. FOOTER & LIGHTBOX ---------------------------------------------------- */
+
+/* 12. FOOTER & LIGHTBOX ---------------------------------------------------- */
+
 .site-footer {
   padding-block: 2rem;
   border-top: 1px solid var(--line);
-  font: 500 0.9rem var(--display);
+
+  font:
+    500
+    0.9rem
+    var(--display);
+
   color: var(--muted);
 }
+
 .foot {
   display: flex;
   flex-wrap: wrap;
@@ -582,8 +1109,16 @@ h2 {
   color: var(--parchment);
   overflow: visible;
 }
-.lightbox[open] { display: grid; gap: 0.75rem; justify-items: center; }
-.lightbox::backdrop { background: rgba(10, 8, 5, 0.9); }
+
+.lightbox[open] {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: center;
+}
+
+.lightbox::backdrop {
+  background: rgba(10, 8, 5, 0.9);
+}
 
 .lightbox img {
   display: block;
@@ -597,26 +1132,60 @@ h2 {
 .lightbox-close {
   justify-self: end;
   padding: 0.45rem 1rem;
+
   background: var(--bark);
   color: var(--parchment);
+
   border: 1px solid var(--clay);
   border-radius: var(--radius);
-  font: 500 0.9rem var(--display);
+
+  font:
+    500
+    0.9rem
+    var(--display);
+
   cursor: pointer;
-  transition: background-color 0.2s ease;
+
+  transition:
+    background-color 0.2s ease;
 }
-.lightbox-close:hover { background: var(--loam-2); }
 
-.lightbox-caption { display: grid; gap: 0.15rem; justify-items: center; text-align: center; }
-.lightbox-caption strong { font: 700 1.1rem var(--display); }
-.lightbox-caption span { color: var(--muted); }
+.lightbox-close:hover {
+  background: var(--loam-2);
+}
 
-/* 12. MOTION PREFERENCES --------------------------------------------------- */
-/* With animations off, elements simply show their final resting state. */
+.lightbox-caption {
+  display: grid;
+  gap: 0.15rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.lightbox-caption strong {
+  font:
+    700
+    1.1rem
+    var(--display);
+}
+
+.lightbox-caption span {
+  color: var(--muted);
+}
+
+
+/* 13. MOTION PREFERENCES --------------------------------------------------- */
+
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
     animation: none !important;
     transition: none !important;
   }
+
 }
